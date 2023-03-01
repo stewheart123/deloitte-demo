@@ -1,12 +1,12 @@
 .question-block {
     color: white;
+
     &__question-container {
         height: 290px;
         display: flex;
     }
 
     h1 {
-        color: white;
         font-family: Open Sans;
         font-size: 40px;
         font-weight: 600;
@@ -15,7 +15,10 @@
         text-align: center;
         max-width: 382px;
         margin: auto;
-    
+        background: linear-gradient(104.63deg, #367AAC -3.78%, #458693 19.15%, #53927B 40.17%, #609D65 60.55%, #6CA651 78.38%, #77B03E 96.22%, #86BC25 118.51%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     &__rectangle-button-container {
@@ -32,6 +35,7 @@
         justify-content: center;
         align-items: center;
         margin: 15px;
+        cursor: pointer;
 
         p {
             font-family: 'open sans';
