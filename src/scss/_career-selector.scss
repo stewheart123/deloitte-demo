@@ -1,0 +1,17 @@
+.career-selector {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    max-width: calc(100% - 200px);
+    margin: 124px auto;
+
+    &__feature-image {
+        background-image:url('/images/Rectangle 341.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 684px;
+        height: 684px;    
+    }
+
+}

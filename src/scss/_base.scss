@@ -1,0 +1,15 @@
+//VARIABLES
+$primary-color: black;
+$alt-black: #050805;
+
+//FONTS
+@font-face {
+    font-family: 'open sans';
+    src: url('../fonts/OpenSans-VariableFont_wdth.ttf');
+}
+
+//BASE
+
+body {
+    background-color: $primary-color;
+  }
