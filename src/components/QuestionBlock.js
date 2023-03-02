@@ -74,7 +74,7 @@ class QuestionBlock extends React.Component {
         <Swiper
           spaceBetween={30}
           effect={"fade"}
-          speed={1000}
+          speed={300}
           navigation={
             true
           }
@@ -117,19 +117,19 @@ class QuestionBlock extends React.Component {
               </div>
               <div className="question-block__rectangle-button-container">
                 <div className={this.state.activeButtonB === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,2)}>
-                  <p>Always changing</p>
+                  <p>Never the same</p>
                 </div>
                 <div className={this.state.activeButtonB === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2,2)}>
                   <p>A bustling office</p>
                 </div>
                 <div className={this.state.activeButtonB === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3,2)}>
-                  <p>A comfortable desk setup</p>
+                  <p>A varied routine</p>
                 </div>
                 <div className={this.state.activeButtonB === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4,2)}>
                   <p>Somewhere quiet</p>
                 </div>
                 <div className={this.state.activeButtonB === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5,2)}>
-                  <p>Access to cutting edge tech</p>
+                  <p>Technological hardware</p>
                 </div>
               </div>
             </div>
@@ -137,23 +137,23 @@ class QuestionBlock extends React.Component {
           <SwiperSlide>
           <div className="slide-wrapper">
               <div className="question-block__question-container">
-                <h1>What statement best describes your attitude towards social interactions</h1>
+                <h1>You feel rewarded by</h1>
               </div>
               <div className="question-block__rectangle-button-container">
                 <div className={this.state.activeButtonC === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,3)}>
-                  <p>I have no preference</p>
+                  <p>Representing values</p>
                 </div>
                 <div className={this.state.activeButtonC === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2,3)}>
-                  <p>I prefer to build strong relationships in large teams</p>
+                  <p>Nurturing</p>
                 </div>
                 <div className={this.state.activeButtonC === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3,3)}>
-                  <p>I enjoy talking with clients</p>
+                  <p>Client satisfaction</p>
                 </div>
                 <div className={this.state.activeButtonC === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4,3)}>
-                  <p>Small teams is my preference</p>
+                  <p>Strategising</p>
                 </div>
                 <div className={this.state.activeButtonC === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5,3)}>
-                  <p>I prefer to work by myself</p>
+                  <p>Technical solutions</p>
                 </div>
               </div>
             </div>
