@@ -1,5 +1,6 @@
 .question-block {
     color: white;
+    width: 50%;
 
     &__question-container {
         height: 290px;
@@ -47,4 +48,8 @@
             margin: 0;
         }
     }
+}
+.swiper-slide,
+.slide-wrapper {
+    background-color: black;
 }
