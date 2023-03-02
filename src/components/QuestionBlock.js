@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper";
+import { EffectFade, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+// import "swiper/css/pagination";
 
 //perhaps split each panel into a separate component?
 
@@ -21,6 +21,7 @@ class QuestionBlock extends React.Component {
     super(props);
     this.state = {
       activeButton: null,
+      currentPage : 1,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -33,16 +34,22 @@ class QuestionBlock extends React.Component {
   render() {
     return (
       <div className="question-block">
+        <p className="question-block__pagination">{this.state.currentPage} of 3</p>
         <Swiper
           spaceBetween={30}
           effect={"fade"}
           speed={1000}
-          navigation={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[EffectFade, Navigation, Pagination]}
+          navigation={
+            true
+          }
+          allowTouchMove ={false} 
+
+          modules={[EffectFade, Navigation]}
           className="mySwiper"
+         // onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={(swiper) => 
+            this.setState({currentPage : swiper.activeIndex + 1})
+            }
         >
           <SwiperSlide>
             <div className="slide-wrapper">

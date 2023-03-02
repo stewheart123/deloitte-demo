@@ -1,6 +1,24 @@
 .question-block {
     color: white;
     width: 50%;
+    position: relative;
+
+    p.question-block__pagination {
+        width: 55px;
+        height: 25px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        color: #FFFFFF;
+        text-align: center;
+        width: 120px;
+        position: absolute;
+        left: calc(50% - 60px);
+        top: -10px;
+        z-index: 2;
+    }
 
     &__question-container {
         height: 290px;
@@ -63,4 +81,55 @@
 .swiper-slide,
 .slide-wrapper {
     background-color: black;
+}
+.question-block .swiper-button-next {
+    position: absolute;
+    top: 29px;
+    right: 0;
+    width: 29px;
+    height: 29px;
+    background-image: url('/images/next-icon.png');
+    background-repeat: no-repeat;
+}
+
+.question-block .swiper-button-next:after {
+    content: "Next";
+    width: 77px;
+    height: 25px;
+    font-family: 'open sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    position: absolute;
+    right: 25px;
+    top: 1px;
+}
+
+.question-block .swiper-button-prev {
+    position: absolute;
+    top: 29px;
+    right: 0;
+    width: 29px;
+    height: 29px;
+    background-image: url('/images/prev-icon.png');
+    background-repeat: no-repeat;
+}
+
+.question-block .swiper-button-prev:after {
+    content: "Prev";
+    width: 77px;
+    height: 25px;
+    font-family: 'open sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    position: absolute;
+    left: 25px;
+    top: 1px;
 }
