@@ -17,6 +17,19 @@ import "swiper/css/pagination";
 
 //modal also has a reset button
 class QuestionBlock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeButton: null,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(buttonId) {
+    this.setState({ activeButton: buttonId });
+    //add other code to update the questionnaire state
+  }
+  
   render() {
     return (
       <div className="question-block">
@@ -37,19 +50,19 @@ class QuestionBlock extends React.Component {
                 <h1>Which sounds most like you?</h1>
               </div>
               <div className="question-block__rectangle-button-container">
-                <div className="question-block__rectangle-button">
+                <div className={this.state.activeButton === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1)}>
                   <p>Resilient</p>
                 </div>
-                <div className="question-block__rectangle-button">
+                <div className={this.state.activeButton === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2)}>
                   <p>Great with people</p>
                 </div>
-                <div className="question-block__rectangle-button">
+                <div className={this.state.activeButton === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3)}>
                   <p>Friendly</p>
                 </div>
-                <div className="question-block__rectangle-button">
+                <div className={this.state.activeButton === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4)}>
                   <p>Logical thinker</p>
                 </div>
-                <div className="question-block__rectangle-button">
+                <div className={this.state.activeButton === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5)}>
                   <p>Eye for numbers</p>
                 </div>
               </div>

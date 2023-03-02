@@ -37,6 +37,7 @@
         align-items: center;
         margin: 15px;
         cursor: pointer;
+        transition: 0.6s;
 
         p {
             font-family: 'open sans';
@@ -46,6 +47,16 @@
             letter-spacing: 0em;
             text-align: center;
             margin: 0;
+        }
+    }
+    .--active {
+        border: 3px solid #cfed8f;
+        box-shadow: 0 0 7px #b6e552;
+        transition: 0.6s;
+        transform: translateY(-8px);
+        p {
+            color: #cfed8f;
+            transition: 0.6s;
         }
     }
 }
