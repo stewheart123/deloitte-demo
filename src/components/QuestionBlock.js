@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 //perhaps split each panel into a separate component?
 
-//add onclick event that changes the state plus updates an object / array with answers
+
 
 //once all are complete, slider is replaced with a modal - 'ready for results?' / cancel - undos last array entery or shows modal 
 
@@ -20,15 +20,51 @@ class QuestionBlock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeButton: null,
+      activeButtonA: null,
+      activeButtonB: null,
+      activeButtonC: null,
       currentPage : 1,
+      questionnaireAnswers :  [{ id: 1, answer: '' }, { id: 2, answer: '' }, { id: 3, answer: '' }],
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(buttonId) {
-    this.setState({ activeButton: buttonId });
-    //add other code to update the questionnaire state
+  checkResults(pageNumber, selection) {
+    //opens array and places answer in correct position
+    const answers = this.state.questionnaireAnswers.map(answer => {
+      if (pageNumber === answer.id) {
+        answer.answer = selection ;
+      }
+      return answer;
+    });
+  
+    this.setState({questionnaireAnswers: answers});
+    console.log(this.state.questionnaireAnswers);
+
+    //check if all answers are filled    
+    var allFilled = 0;
+    this.state.questionnaireAnswers.forEach(element => {
+      if(element.answer !== '') {
+        allFilled ++;
+      }
+      if(allFilled === this.state.questionnaireAnswers.length ) {
+        console.log('OPEN MODAL');
+      }
+    });
+    
+  }
+
+  handleClick(buttonId, questionNumber) {
+    if(questionNumber === 1) {
+      this.setState({ activeButtonA: buttonId });
+    }
+    if(questionNumber === 2) {
+      this.setState({ activeButtonB: buttonId });
+    }
+    if(questionNumber === 3) {
+      this.setState({ activeButtonC: buttonId });
+    }
+    this.checkResults(this.state.currentPage, buttonId);
   }
   
   render() {
@@ -46,7 +82,6 @@ class QuestionBlock extends React.Component {
 
           modules={[EffectFade, Navigation]}
           className="mySwiper"
-         // onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={(swiper) => 
             this.setState({currentPage : swiper.activeIndex + 1})
             }
@@ -57,70 +92,68 @@ class QuestionBlock extends React.Component {
                 <h1>Which sounds most like you?</h1>
               </div>
               <div className="question-block__rectangle-button-container">
-                <div className={this.state.activeButton === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1)}>
+                <div className={this.state.activeButtonA === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,1)}>
                   <p>Resilient</p>
                 </div>
-                <div className={this.state.activeButton === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2)}>
+                <div className={this.state.activeButtonA === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2,1)}>
                   <p>Great with people</p>
                 </div>
-                <div className={this.state.activeButton === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3)}>
+                <div className={this.state.activeButtonA === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3,1)}>
                   <p>Friendly</p>
                 </div>
-                <div className={this.state.activeButton === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4)}>
+                <div className={this.state.activeButtonA === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4,1)}>
                   <p>Logical thinker</p>
                 </div>
-                <div className={this.state.activeButton === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5)}>
+                <div className={this.state.activeButtonA === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5,1)}>
                   <p>Eye for numbers</p>
                 </div>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          
-            <div className="slide-wrapper">
+          <div className="slide-wrapper">
               <div className="question-block__question-container">
-                <h1>Another Question?</h1>
+                <h1>What surroundings bring the best out in you?</h1>
               </div>
               <div className="question-block__rectangle-button-container">
-                <div className="question-block__rectangle-button">
-                  <p>Resilient</p>
+                <div className={this.state.activeButtonB === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,2)}>
+                  <p>Always changing</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Great with people</p>
+                <div className={this.state.activeButtonB === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2,2)}>
+                  <p>A bustling office</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Friendly</p>
+                <div className={this.state.activeButtonB === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3,2)}>
+                  <p>A comfortable desk setup</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Logical thinker</p>
+                <div className={this.state.activeButtonB === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4,2)}>
+                  <p>Somewhere quiet</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Eye for numbers</p>
+                <div className={this.state.activeButtonB === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5,2)}>
+                  <p>Access to cutting edge tech</p>
                 </div>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-         
-            <div className="slide-wrapper">
+          <div className="slide-wrapper">
               <div className="question-block__question-container">
-                <h1>Question 2</h1>
+                <h1>What statement best describes your attitude towards social interactions</h1>
               </div>
               <div className="question-block__rectangle-button-container">
-                <div className="question-block__rectangle-button">
-                  <p>Resilient</p>
+                <div className={this.state.activeButtonC === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,3)}>
+                  <p>I have no preference</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Great with people</p>
+                <div className={this.state.activeButtonC === 2 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(2,3)}>
+                  <p>I prefer to build strong relationships in large teams</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Friendly</p>
+                <div className={this.state.activeButtonC === 3 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(3,3)}>
+                  <p>I enjoy talking with clients</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Logical thinker</p>
+                <div className={this.state.activeButtonC === 4 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(4,3)}>
+                  <p>Small teams is my preference</p>
                 </div>
-                <div className="question-block__rectangle-button">
-                  <p>Eye for numbers</p>
+                <div className={this.state.activeButtonC === 5 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(5,3)}>
+                  <p>I prefer to work by myself</p>
                 </div>
               </div>
             </div>
