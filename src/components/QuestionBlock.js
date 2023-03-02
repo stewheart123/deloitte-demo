@@ -25,6 +25,8 @@ class QuestionBlock extends React.Component {
       activeButtonC: null,
       currentPage : 1,
       questionnaireAnswers :  [{ id: 1, answer: '' }, { id: 2, answer: '' }, { id: 3, answer: '' }],
+      modalClass : 'modal --hidden',
+      careerResult : 'Ready for the results?'
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -48,11 +50,36 @@ class QuestionBlock extends React.Component {
         allFilled ++;
       }
       if(allFilled === this.state.questionnaireAnswers.length ) {
-        console.log('OPEN MODAL');
+        this.setState({modalClass:'modal --display'});
       }
     });
     
   }
+
+  resetResults() {
+    window.location.reload(); 
+  } 
+
+  showResults() {   
+    var result = (this.state.questionnaireAnswers[0].answer + this.state.questionnaireAnswers[1].answer + this.state.questionnaireAnswers[2].answer)  / 3 ;
+    console.log(result + " RESULT");
+    if(result < 6) {
+      this.setState({careerResult : 'Analyst'});    
+    }
+    if(result < 5) {
+      this.setState({careerResult : 'Systems Architect'});    
+    }
+    if(result < 4) {
+      this.setState({careerResult : 'Client Success'});    
+    }
+    if(result < 3) {
+      this.setState({careerResult : 'Human Resources'});    
+    }
+    if(result <2) {
+      this.setState({careerResult : 'Representitive'});    
+    }
+
+  };
 
   handleClick(buttonId, questionNumber) {
     if(questionNumber === 1) {
@@ -74,7 +101,7 @@ class QuestionBlock extends React.Component {
         <Swiper
           spaceBetween={30}
           effect={"fade"}
-          speed={300}
+          speed={400}
           navigation={
             true
           }
@@ -159,6 +186,20 @@ class QuestionBlock extends React.Component {
             </div>
           </SwiperSlide>
         </Swiper>
+        <div className={this.state.modalClass}>
+          
+            <div className="question-block__question-container">
+               <h1>{this.state.careerResult}</h1>
+              </div>
+              <div className="question-block__rectangle-button-container">
+                <div className='question-block__rectangle-button --decider' onClick={() => this.showResults()}>
+                  <p>Show me</p>
+                </div>
+                <div className='question-block__rectangle-button --decider' onClick={() => this.resetResults()}>
+                  <p>Reset</p>
+                </div>
+              </div>
+        </div>
       </div>
     );
   }
