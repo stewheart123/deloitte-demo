@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
       <Header />
-      <section className="career-selector">
-        <FeatureImage image={"Rectangle 341.png"} />        
+      <section className="two-col-container">
+        <FeatureImage image={"Rectangle 341.png"} />
         <QuestionBlock />
       </section>
     </div>

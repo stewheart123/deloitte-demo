@@ -1,4 +1,5 @@
 import React from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper";
@@ -7,13 +8,7 @@ import { EffectFade, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-// import "swiper/css/pagination";
 
-//perhaps split each panel into a separate component?
-
-//once all are complete, slider is replaced with a modal - 'ready for results?' / cancel - undos last array entery or shows modal
-
-//modal also has a reset button
 class QuestionBlock extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +23,7 @@ class QuestionBlock extends React.Component {
         { id: 3, answer: "" },
       ],
       modalClass: "modal --hidden",
-      careerResult: "Ready to see your ideal career path?",
+      careerResult: "Ready for your ideal career path?",
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -42,9 +37,7 @@ class QuestionBlock extends React.Component {
       return answer;
     });
 
-    this.setState({ questionnaireAnswers: answers });
-    console.log(this.state.questionnaireAnswers);
-
+    this.setState({ questionnaireAnswers: answers });    
     //check if all answers are filled
     var allFilled = 0;
     this.state.questionnaireAnswers.forEach((element) => {
@@ -294,6 +287,7 @@ class QuestionBlock extends React.Component {
             </div>
           </SwiperSlide>
         </Swiper>
+        {/* career result modal */}
         <div className={this.state.modalClass}>
           <div className="question-block__question-container">
             <h1>{this.state.careerResult}</h1>

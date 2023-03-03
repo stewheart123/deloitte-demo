@@ -1,7 +1,9 @@
 //VARIABLES
 $primary-color: black;
 $alt-black: #050805;
-
+$deloitte-green : #cfed8f;
+$white: #ffffff;
+$blue: #367aac;
 //FONTS
 @font-face {
   font-family: "open sans";
@@ -17,7 +19,7 @@ body {
   width: 28%;
   max-width: 244px;
   height: 140px;
-  border: 3px solid #367aac;
+  border: 3px solid $blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,24 +64,24 @@ body {
 }
 
 .--active {
-  border: 3px solid #cfed8f;
+  border: 3px solid $deloitte-green;
   box-shadow: 0 0 7px #b6e552;
   transition: 0.6s;
   transform: translateY(-8px);
 
   p {
-    color: #cfed8f;
+    color: $deloitte-green;
     transition: 0.6s;
   }
 }
 
 .--decider:hover {
-  border: 3px solid #cfed8f;
+  border: 3px solid $deloitte-green;
   box-shadow: 0 0 7px #b6e552;
   transition: 0.6s;
 
   p {
-    color: #cfed8f;
+    color: $deloitte-green;
     transition: 0.6s;
   }
 }
