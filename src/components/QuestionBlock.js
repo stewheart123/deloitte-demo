@@ -140,7 +140,7 @@ class QuestionBlock extends React.Component {
           <SwiperSlide>
           <div className="slide-wrapper">
               <div className="question-block__question-container">
-                <h1>What surroundings bring the best out in you?</h1>
+                <h1>What surroundings bring the best out in&nbsp;you?</h1>
               </div>
               <div className="question-block__rectangle-button-container">
                 <div className={this.state.activeButtonB === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,2)}>
@@ -164,7 +164,7 @@ class QuestionBlock extends React.Component {
           <SwiperSlide>
           <div className="slide-wrapper">
               <div className="question-block__question-container">
-                <h1>You feel rewarded by</h1>
+                <h1>You feel rewarded by ...</h1>
               </div>
               <div className="question-block__rectangle-button-container">
                 <div className={this.state.activeButtonC === 1 ? 'question-block__rectangle-button --active' : 'question-block__rectangle-button'} onClick={() => this.handleClick(1,3)}>

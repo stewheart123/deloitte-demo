@@ -2,16 +2,39 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    max-width: calc(100% - 200px);
+    max-width: calc(1903px - 200px);
     margin: 124px auto;
+    justify-content: center;
+
+    @media only screen and (max-width: 1900px) {
+        max-width: calc(100% - 60px);
+        margin: 60px auto;
+    }
+
+    @media only screen and (max-width: 1023px) {
+        flex-direction: column;
+        margin: 10px auto;
+    }
 
     &__feature-image {
-        background-image:url('/images/Rectangle 341.png');
+        background-image: url('/images/Rectangle 341.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        width: 684px;
-        height: 684px;    
+        height: 684px;
+        max-width: 684px;
+        width: 100%;
+
+        @media only screen and (max-width: 1439px) {
+            background-position: top;
+            width: 33%;
+        }
+
+        @media only screen and (max-width: 1023px) {
+            width: 270px;
+            height: 270px;
+            margin: auto;
+        }
     }
 
 }
