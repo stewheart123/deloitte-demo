@@ -3,6 +3,7 @@ import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper";
+import Slider from "react-input-slider";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,6 +18,7 @@ class QuestionBlock extends React.Component {
       activeButtonB: null,
       activeButtonC: null,
       currentPage: 1,
+      sliderValue: 50,
       questionnaireAnswers: [
         { id: 1, answer: "" },
         { id: 2, answer: "" },
@@ -26,6 +28,7 @@ class QuestionBlock extends React.Component {
       careerResult: "Ready for your ideal career path?",
     };
     this.handleClick = this.handleClick.bind(this);
+    this.sliderInputUpdate = this.sliderInputUpdate.bind(this);
   }
 
   checkResults(pageNumber, selection) {
@@ -37,7 +40,7 @@ class QuestionBlock extends React.Component {
       return answer;
     });
 
-    this.setState({ questionnaireAnswers: answers });    
+    this.setState({ questionnaireAnswers: answers });
     //check if all answers are filled
     var allFilled = 0;
     this.state.questionnaireAnswers.forEach((element) => {
@@ -88,14 +91,28 @@ class QuestionBlock extends React.Component {
     if (questionNumber === 3) {
       this.setState({ activeButtonC: buttonId });
     }
-    this.checkResults(this.state.currentPage, buttonId);
+    this.checkResults(this.state.currentPage-1, buttonId);
+    console.log(this.state.questionnaireAnswers);
+  }
+
+  sliderInputUpdate(value) {
+    // if (value.cancelable) {
+    //   value.preventDefault();
+    // }
+    this.setState({ sliderValue: value });
+  }
+
+  handleTouchMove(event) {
+    event.preventDefault();
+    if (event.cancelable) {
+    }
   }
 
   render() {
     return (
       <div className="question-block">
         <p className="question-block__pagination">
-          {this.state.currentPage} of 3
+          {this.state.currentPage} of 4
         </p>
         <Swiper
           spaceBetween={30}
@@ -109,6 +126,43 @@ class QuestionBlock extends React.Component {
             this.setState({ currentPage: swiper.activeIndex + 1 })
           }
         >
+          <SwiperSlide>
+            <div className="slide-wrapper --slider-slide">
+              <h1>
+                What percentage of your time would you prefer to work from home?
+              </h1>
+              <div className="slide-input">
+                <Slider
+                  axis="x"
+                  xstep={10}
+                  x={this.state.sliderValue}
+                  onChange={({ x }) => this.sliderInputUpdate(x)}
+                  styles={{
+                    track: {
+                      backgroundColor: "#c1fb4d",
+                      width: 80 + "%",
+                      margin: "auto",
+                      display: "block",
+                      height: 3,
+                    },
+                    active: {
+                      backgroundColor: "#c1fb4d",
+                    },
+                    thumb: {
+                      backgroundColor: "#c1fb4d",
+                      width: 30,
+                      height: 30,
+                      borderRadius: 30,
+                    },
+                    disabled: {
+                      opacity: 0.5,
+                    },
+                  }}
+                />
+              </div>
+              <p className="slider-percentage">{this.state.sliderValue} %</p>
+            </div>
+          </SwiperSlide>
           <SwiperSlide>
             <div className="slide-wrapper">
               <div className="question-block__question-container">
