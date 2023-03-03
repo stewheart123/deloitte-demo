@@ -1,238 +1,173 @@
 .question-block {
-    color: white;
-    width: 50%;
-    position: relative;
+  color: white;
+  width: 50%;
+  position: relative;
 
-    @media only screen and (max-width: 1024px) {
-        width: 70%;
+  @media only screen and (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  p.question-block__pagination {
+    width: 55px;
+    height: 25px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #ffffff;
+    text-align: center;
+    width: 120px;
+    position: absolute;
+    left: calc(50% - 60px);
+    top: -10px;
+    z-index: 2;
+  }
+
+  &__question-container {
+    height: 260px;
+    display: flex;
+    padding-top: 30px;
+
+    @media only screen and (max-width: 1439px) {
+      height: 200px;
+      padding-top: 44px;
     }
 
     @media only screen and (max-width: 1023px) {
-        width: 100%;
+      height: 200px;
     }
 
-    p.question-block__pagination {
-        width: 55px;
-        height: 25px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: center;
-        color: #FFFFFF;
-        text-align: center;
-        width: 120px;
-        position: absolute;
-        left: calc(50% - 60px);
-        top: -10px;
-        z-index: 2;
+    @media only screen and (max-width: 767px) {
+      height: 150px;
+    }
+  }
+
+  h1 {
+    font-family: Open Sans;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: center;
+    max-width: 382px;
+    margin: auto;
+    background: linear-gradient(
+      104.63deg,
+      #367aac -3.78%,
+      #458693 19.15%,
+      #53927b 40.17%,
+      #609d65 60.55%,
+      #6ca651 78.38%,
+      #77b03e 96.22%,
+      #86bc25 118.51%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media only screen and (max-width: 1439px) {
+      font-size: 30px;
+      line-height: 30px;
+      max-width: 340px;
     }
 
-    &__question-container {
-        height: 260px;
-        display: flex;
-        padding-top: 30px;
-
-        @media only screen and (max-width: 1439px) {
-            height: 200px;
-            padding-top: 44px;
-        }
-
-        @media only screen and (max-width: 1023px) {
-            height: 200px;
-        }
-
-        @media only screen and (max-width: 767px) {
-            height: 150px;
-        }
-
-
+    @media only screen and (max-width: 767px) {
+      font-size: 24px;
     }
+  }
 
-    h1 {
-        font-family: Open Sans;
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 54px;
-        letter-spacing: 0em;
-        text-align: center;
-        max-width: 382px;
-        margin: auto;
-        background: linear-gradient(104.63deg, #367AAC -3.78%, #458693 19.15%, #53927B 40.17%, #609D65 60.55%, #6CA651 78.38%, #77B03E 96.22%, #86BC25 118.51%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-
-        @media only screen and (max-width: 1439px) {
-            font-size: 30px;
-            line-height: 30px;
-            max-width: 340px;
-        }
-
-        @media only screen and (max-width: 767px) {
-            font-size: 24px;
-        }
-    }
-
-    &__rectangle-button-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    &__rectangle-button {
-        width: 28%;
-        max-width: 244px;
-        height: 140px;
-        border: 3px solid #367AAC;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 15px;
-        cursor: pointer;
-        transition: 0.6s;
-
-        @media only screen and (max-width: 1439px) {
-            width: calc(31% - 12px);
-            margin: 6px;
-            height: 80px;
-        }
-
-        @media only screen and (max-width: 1023px) {
-            height: 89px;
-            width: 42%;
-        }
-
-        @media only screen and (max-width: 1023px) {
-            width: 43%;
-            margin: 5px;
-            height: 62px;
-        }
-
-        p {
-            font-family: 'open sans';
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 27px;
-            letter-spacing: 0em;
-            text-align: center;
-            margin: 0;
-
-            @media only screen and (max-width: 1439px) {
-                font-size: 16px;
-            }
-
-            @media only screen and (max-width: 767px) {
-                font-size: 14px;
-            }
-        }
-    }
-
-    .--active {
-        border: 3px solid #cfed8f;
-        box-shadow: 0 0 7px #b6e552;
-        transition: 0.6s;
-        transform: translateY(-8px);
-
-        p {
-            color: #cfed8f;
-            transition: 0.6s;
-        }
-    }
-
-    .--decider:hover {
-        border: 3px solid #cfed8f;
-        box-shadow: 0 0 7px #b6e552;
-        transition: 0.6s;
-
-        p {
-            color: #cfed8f;
-            transition: 0.6s;
-        }
-    }
+  &__rectangle-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .swiper-slide,
 .slide-wrapper {
-    background-color: black;
+  background-color: black;
 }
 
 .question-block .swiper-button-next {
-    position: absolute;
-    top: 29px;
-    right: 0;
-    width: 29px;
-    height: 29px;
-    background-image: url('/images/next-icon.png');
-    background-repeat: no-repeat;
+  position: absolute;
+  top: 29px;
+  right: 0;
+  width: 29px;
+  height: 29px;
+  background-image: url("/images/next-icon.png");
+  background-repeat: no-repeat;
 }
 
 .question-block .swiper-button-next:after {
-    content: "Next";
-    width: 77px;
-    height: 25px;
-    font-family: 'open sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    color: #FFFFFF;
-    position: absolute;
-    right: 25px;
-    top: 1px;
+  content: "Next";
+  width: 77px;
+  height: 25px;
+  font-family: "open sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  right: 25px;
+  top: 1px;
 
-    @media only screen and (max-width: 767px) {
-        display: none;
-    }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .question-block .swiper-button-prev {
-    position: absolute;
-    top: 29px;
-    right: 0;
-    width: 29px;
-    height: 29px;
-    background-image: url('/images/prev-icon.png');
-    background-repeat: no-repeat;
+  position: absolute;
+  top: 29px;
+  right: 0;
+  width: 29px;
+  height: 29px;
+  background-image: url("/images/prev-icon.png");
+  background-repeat: no-repeat;
 }
 
 .question-block .swiper-button-prev:after {
-    content: "Prev";
-    width: 77px;
-    height: 25px;
-    font-family: 'open sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    color: #FFFFFF;
-    position: absolute;
-    left: 25px;
-    top: 1px;
+  content: "Prev";
+  width: 77px;
+  height: 25px;
+  font-family: "open sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  left: 25px;
+  top: 1px;
 
-    @media only screen and (max-width: 767px) {
-        display: none;
-    }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .modal {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 0;
-    opacity: 0;
-    transition: .6s;
-    transition-timing-function: ease-out;
-
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 0;
+  opacity: 0;
+  transition: 0.6s;
+  transition-timing-function: ease-out;
 }
 
 .--display {
-    z-index: 2;
-    opacity: 1;
-    transition: .6s;
-    transition-timing-function: ease-out;
+  z-index: 2;
+  opacity: 1;
+  transition: 0.6s;
+  transition-timing-function: ease-out;
 }

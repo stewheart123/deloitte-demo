@@ -4,12 +4,82 @@ $alt-black: #050805;
 
 //FONTS
 @font-face {
-    font-family: 'open sans';
-    src: url('../fonts/OpenSans-VariableFont_wdth.ttf');
+  font-family: "open sans";
+  src: url("../fonts/OpenSans-VariableFont_wdth.ttf");
 }
 
 //BASE
-
 body {
-    background-color: $primary-color;
+  background-color: $primary-color;
+}
+
+.rectangle-button {
+  width: 28%;
+  max-width: 244px;
+  height: 140px;
+  border: 3px solid #367aac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.6s;
+
+  @media only screen and (max-width: 1439px) {
+    width: calc(31% - 12px);
+    margin: 6px;
+    height: 80px;
   }
+
+  @media only screen and (max-width: 1023px) {
+    height: 89px;
+    width: 42%;
+  }
+
+  @media only screen and (max-width: 1023px) {
+    width: 43%;
+    margin: 5px;
+    height: 62px;
+  }
+
+  p {
+    font-family: "open sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin: 0;
+
+    @media only screen and (max-width: 1439px) {
+      font-size: 16px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.--active {
+  border: 3px solid #cfed8f;
+  box-shadow: 0 0 7px #b6e552;
+  transition: 0.6s;
+  transform: translateY(-8px);
+
+  p {
+    color: #cfed8f;
+    transition: 0.6s;
+  }
+}
+
+.--decider:hover {
+  border: 3px solid #cfed8f;
+  box-shadow: 0 0 7px #b6e552;
+  transition: 0.6s;
+
+  p {
+    color: #cfed8f;
+    transition: 0.6s;
+  }
+}

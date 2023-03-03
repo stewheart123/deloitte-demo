@@ -1,0 +1,19 @@
+.feature-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 684px;
+  max-width: 684px;
+  width: 100%;
+
+  @media only screen and (max-width: 1439px) {
+    background-position: top;
+    width: 33%;
+  }
+
+  @media only screen and (max-width: 1023px) {
+    width: 270px;
+    height: 270px;
+    margin: auto;
+  }
+}
