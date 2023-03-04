@@ -8,7 +8,7 @@ function App() {
       <Header />
       <section className="two-col-container">
         <FeatureImage image={"Rectangle 341.png"} />
-        <QuestionBlock />
+        <QuestionBlock questions="4"/>
       </section>
     </div>
   );
