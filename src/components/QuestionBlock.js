@@ -83,7 +83,7 @@ class QuestionBlock extends React.Component {
     }
   }
 
-  handleClick = (buttonId, questionNumber) => {
+  handleClick = (buttonId) => {
     this.checkResults(this.state.currentPage, buttonId);
     console.log(this.state.questionnaireAnswers);
   };
