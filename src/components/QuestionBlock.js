@@ -3,7 +3,6 @@ import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper";
-import Slider from "react-input-slider";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,6 +10,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 import ButtonSelect from "./ButtonSelect";
+import SlideInput from "./SlideInput";
 
 class QuestionBlock extends React.Component {
   constructor(props) {
@@ -22,16 +22,14 @@ class QuestionBlock extends React.Component {
       currentPage: 1,
       sliderValue: 50,
       questionnaireAnswers: [
-        { id: 1, answer: "" },
+        { id: 1, answer: 3 },
         { id: 2, answer: "" },
         { id: 3, answer: "" },
-        { id: 4, answer: "" }
+        { id: 4, answer: "" },
       ],
       modalClass: "modal --hidden",
       careerResult: "Ready for your ideal career path?",
     };
-    //  this.handleClick = this.handleClick.bind(this);
-    // this.sliderInputUpdate = this.sliderInputUpdate.bind(this);
   }
 
   checkResults(pageNumber, selection) {
@@ -86,57 +84,14 @@ class QuestionBlock extends React.Component {
   }
 
   handleClick = (buttonId, questionNumber) => {
-    // if (questionNumber === 1) {
-    //   this.setState({ activeButtonA: buttonId });
-    // }
-    // if (questionNumber === 2) {
-    //   this.setState({ activeButtonB: buttonId });
-    // }
-    // if (questionNumber === 3) {
-    //   this.setState({ activeButtonC: buttonId });
-    // }
     this.checkResults(this.state.currentPage, buttonId);
     console.log(this.state.questionnaireAnswers);
   };
 
   getAnswer = (question, ans) => {
-    console.log(question, ans);
-
+   // console.log(question, ans);
     this.handleClick(question, ans);
   };
-
-  sliderInputUpdate = (value, question) => {
-    var ans;
-    if (value  >= 0 || value === 20 ) {
-      ans = 1;
-    }
-    if (value  === 30 || value === 40 ) {
-      ans = 2;
-    }
-    if (value  === 50 || value === 60 ) {
-      ans = 3;
-    }
-    if (value  === 70 || value === 80 ) {
-      ans = 4;
-    }
-    if (value  >= 90 ) {
-      ans = 5;
-    }
-    console.log(question, ans);
-    // if (value.cancelable) {
-    //   value.preventDefault();
-    // }
-    this.setState({ sliderValue: value });
-
-    //add in call for handleclick
-    this.handleClick(ans, question);
-  }
-
-  handleTouchMove(event) {
-    event.preventDefault();
-    if (event.cancelable) {
-    }
-  }
 
   render() {
     return (
@@ -157,43 +112,10 @@ class QuestionBlock extends React.Component {
             this.setState({ currentPage: swiper.activeIndex + 1 })
           }
         >
-                    <SwiperSlide>
-            <div className="slide-wrapper --slider-slide">
-              <h1>
-                What percentage of your time would you prefer to work from home?
-              </h1>
-              <div className="slide-input">
-                <Slider
-                  axis="x"
-                  xstep={10}
-                  x={this.state.sliderValue}
-                  onChange={({ x }) => this.sliderInputUpdate(x, 1)}
-                  styles={{
-                    track: {
-                      backgroundColor: "#c1fb4d",
-                      width: 80 + "%",
-                      margin: "auto",
-                      display: "block",
-                      height: 3,
-                    },
-                    active: {
-                      backgroundColor: "#c1fb4d",
-                    },
-                    thumb: {
-                      backgroundColor: "#c1fb4d",
-                      width: 30,
-                      height: 30,
-                      borderRadius: 30,
-                    },
-                    disabled: {
-                      opacity: 0.5,
-                    },
-                  }}
-                />
-              </div>
-              <p className="slider-percentage">{this.state.sliderValue} %</p>
-            </div>
+          <SwiperSlide >
+            <SlideInput question="What percentage of your working week would you do remotely?" qNo={1} onAnswer={this.getAnswer}/>
           </SwiperSlide>
+
           <SwiperSlide>
             <ButtonSelect
               qNo="2"
@@ -207,8 +129,8 @@ class QuestionBlock extends React.Component {
               ]}
               onAnswer={this.getAnswer}
             />
-            </SwiperSlide>
-            <SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <ButtonSelect
               qNo="3"
               question="What surroundings bring the best out in&nbsp;you?"
@@ -221,8 +143,8 @@ class QuestionBlock extends React.Component {
               ]}
               onAnswer={this.getAnswer}
             />
-            </SwiperSlide>
-            <SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <ButtonSelect
               qNo="4"
               question="You feel rewarded by ..."
@@ -235,9 +157,7 @@ class QuestionBlock extends React.Component {
               ]}
               onAnswer={this.getAnswer}
             />
-            </SwiperSlide>
-    
-
+          </SwiperSlide>
         </Swiper>
         {/* career result modal */}
         <div className={this.state.modalClass}>
