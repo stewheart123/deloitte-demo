@@ -1,0 +1,28 @@
+.--rotary-knob {
+    .p-knob.p-component {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .p-knob-range {
+        stroke: #c1bebe;
+        stroke-width: 14;
+        position: relative;
+        cursor: pointer;
+        fill: transparent;
+    }
+
+    .p-knob-value {
+        stroke: $electric-green;
+        fill: transparent;
+        cursor: pointer;
+    }
+
+    .p-knob-text {
+        fill: transparent;
+    }
+
+    .slider-percentage {
+        margin-top: 40px;
+    }
+}

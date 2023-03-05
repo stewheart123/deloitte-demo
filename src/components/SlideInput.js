@@ -5,7 +5,7 @@ class SlideInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          sliderValue: 30,
+          sliderValue: 50,
         };
     }
 

@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 
 import ButtonSelect from "./ButtonSelect";
 import SlideInput from "./SlideInput";
+import RotaryKnob from "./RotaryKnob";
 
 class QuestionBlock extends React.Component {
   constructor(props) {
@@ -22,10 +23,11 @@ class QuestionBlock extends React.Component {
       currentPage: 1,
       sliderValue: 50,
       questionnaireAnswers: [
-        { id: 1, answer: 3 },
-        { id: 2, answer: "" },
+        { id: 1, answer: 2 },
+        { id: 2, answer: 3 },
         { id: 3, answer: "" },
         { id: 4, answer: "" },
+        { id: 5, answer: "" },
       ],
       modalClass: "modal --hidden",
       careerResult: "Ready for your ideal career path?",
@@ -63,8 +65,10 @@ class QuestionBlock extends React.Component {
       (this.state.questionnaireAnswers[0].answer +
         this.state.questionnaireAnswers[1].answer +
         this.state.questionnaireAnswers[2].answer +
-        this.state.questionnaireAnswers[3].answer) /
-      4;
+        this.state.questionnaireAnswers[3].answer +
+        this.state.questionnaireAnswers[4].answer
+        ) /
+      5;
 
     if (result < 6) {
       this.setState({ careerResult: "Analyst" });
@@ -85,6 +89,7 @@ class QuestionBlock extends React.Component {
 
   handleClick = (buttonId) => {
     this.checkResults(this.state.currentPage, buttonId);
+    console.clear();
     console.log(this.state.questionnaireAnswers);
   };
 
@@ -96,6 +101,10 @@ class QuestionBlock extends React.Component {
   render() {
     return (
       <div className="question-block">
+        <div className="above">
+          
+        
+        </div>
         <p className="question-block__pagination">
           {this.state.currentPage} of {this.props.questions}
         </p>
@@ -112,13 +121,17 @@ class QuestionBlock extends React.Component {
             this.setState({ currentPage: swiper.activeIndex + 1 })
           }
         >
+          <SwiperSlide>
+            <RotaryKnob question="What's your starting salary expectaion?" qNo={1} onAnswer={this.getAnswer}/>
+          </SwiperSlide>
+          
           <SwiperSlide >
-            <SlideInput question="What percentage of your working week would you do remotely?" qNo={1} onAnswer={this.getAnswer}/>
+            <SlideInput question="What percentage of your working week would you do remotely?" qNo={2} onAnswer={this.getAnswer}/>
           </SwiperSlide>
 
           <SwiperSlide>
             <ButtonSelect
-              qNo="2"
+              qNo="3"
               question="Which sounds most like you?"
               answers={[
                 "Resilient",
@@ -132,21 +145,21 @@ class QuestionBlock extends React.Component {
           </SwiperSlide>
           <SwiperSlide>
             <ButtonSelect
-              qNo="3"
+              qNo="4"
               question="What surroundings bring the best out in&nbsp;you?"
               answers={[
                 "Never the same",
                 "A bustling office",
                 "A varied routine",
                 "Somewhere quiet",
-                "Somewhere quiet",
+                "Home Office",
               ]}
               onAnswer={this.getAnswer}
             />
           </SwiperSlide>
           <SwiperSlide>
             <ButtonSelect
-              qNo="4"
+              qNo="5"
               question="You feel rewarded by ..."
               answers={[
                 "Representing values",
