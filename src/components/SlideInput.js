@@ -73,6 +73,8 @@ class SlideInput extends React.Component {
                 margin: "auto",
                 display: "block",
                 height: 3,
+                cursor: 'pointer',
+                             
               },
               active: {
                 backgroundColor: "#c1fb4d",

@@ -132,10 +132,6 @@ class QuestionBlock extends React.Component {
   render() {
     return (
       <div className="question-block">
-        <div className="above">
-          
-        
-        </div>
         <p className="question-block__pagination">
           {this.state.currentPage} of {this.props.questions}
         </p>

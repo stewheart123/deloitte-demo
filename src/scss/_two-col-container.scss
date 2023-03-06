@@ -3,16 +3,16 @@
   width: 100%;
   flex-direction: row;
   max-width: calc(1903px - 200px);
-  margin: 124px auto;
+  margin: 124px auto 0;
   justify-content: center;
 
   @media only screen and (max-width: 1900px) {
     max-width: calc(100% - 60px);
-    margin: 60px auto;
+    margin: 60px auto 0;
   }
 
   @media only screen and (max-width: 1023px) {
     flex-direction: column;
-    margin: 10px auto;
+    margin: 10px auto 0;
   }
 }

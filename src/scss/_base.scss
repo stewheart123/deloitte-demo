@@ -15,10 +15,18 @@ $blue: #367aac;
 body {
   background-color: $primary-color;
 }
+* {
+  -webkit-touch-callout: none;
+ -webkit-user-select: none;
+  -khtml-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none; 
+         user-select: none;
+}
 
 .rectangle-button {
   width: 28%;
-  max-width: 244px;
+  max-width: 233px;
   height: 140px;
   border: 3px solid $blue;
   display: flex;
@@ -32,11 +40,6 @@ body {
     width: calc(31% - 12px);
     margin: 6px;
     height: 80px;
-  }
-
-  @media only screen and (max-width: 1023px) {
-    height: 89px;
-    width: 42%;
   }
 
   @media only screen and (max-width: 1023px) {
@@ -63,9 +66,12 @@ body {
     }
   }
 }
+.rectangle-button:hover {
+  color: $deloitte-green;
+}
 
 .--active {
-  border: 3px solid $deloitte-green;
+  border: 3px solid $electric-green;
   box-shadow: 0 0 7px #b6e552;
   transition: 0.6s;
   transform: translateY(-8px);
@@ -86,7 +92,6 @@ body {
     transition: 0.6s;
   }
 }
-
 
 .test {
   position: relative;
