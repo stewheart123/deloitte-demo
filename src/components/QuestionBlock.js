@@ -29,6 +29,7 @@ class QuestionBlock extends React.Component {
         { id: 4, answer: "" },
         { id: 5, answer: "" },
       ],
+      averageType : "mode", // mode or mean
       modalClass: "modal --hidden",
       careerResult: "Ready for your ideal career path?",
     };
@@ -60,31 +61,61 @@ class QuestionBlock extends React.Component {
     window.location.reload();
   }
 
-  showResults() {
-    var result =
-      (this.state.questionnaireAnswers[0].answer +
-        this.state.questionnaireAnswers[1].answer +
-        this.state.questionnaireAnswers[2].answer +
-        this.state.questionnaireAnswers[3].answer +
-        this.state.questionnaireAnswers[4].answer
-        ) /
-      5;
+  mode = (arr) => {
+    const mode = {};
+    let max = 0, count = 0;
+  
+    for(let i = 0; i < arr.length; i++) {
+      const item = arr[i].answer;      
+      if(mode[item]) {
+        mode[item]++;
+      } else {
+        mode[item] = 1;
+      }
+      
+      if(count < mode[item]) {
+        max = item;
+        count = mode[item];
+      }
+    }
+     
+    return max;
+  };
 
-    if (result < 6) {
-      this.setState({ careerResult: "Analyst" });
+  showResults(averageType) {
+    var total = 0;
+    var average;
+
+    if(averageType === "mode") {
+      average = this.mode(this.state.questionnaireAnswers);
+      console.log("modal average is...."  + average);
     }
-    if (result < 5) {
-      this.setState({ careerResult: "Systems Architect" });
+    else {
+      this.state.questionnaireAnswers.forEach((item)=> {
+        console.log(item.answer);
+        total += item.answer;
+      });
+      average = total / this.state.questionnaireAnswers.length;
+      console.log("mean average is...."  + average);
     }
-    if (result < 4) {
-      this.setState({ careerResult: "Client Success" });
-    }
-    if (result < 3) {
-      this.setState({ careerResult: "Human Resources" });
-    }
-    if (result < 2) {
-      this.setState({ careerResult: "Representitive" });
-    }
+  
+    if (average < 6) {
+        this.setState({ careerResult: "Controls Manager" });
+      }
+      if (average < 5) {
+        this.setState({ careerResult: "Analyst" });
+      }
+      if (average < 4) {
+        this.setState({ careerResult: "Assistant Director" });
+      }
+      if (average < 3) {
+        this.setState({ careerResult: "Client Project Manager" });
+      }
+      if (average < 2) {
+        this.setState({ careerResult: "Consultant" });
+      }
+    
+    
   }
 
   handleClick = (buttonId) => {
@@ -180,7 +211,7 @@ class QuestionBlock extends React.Component {
           <div className="question-block__rectangle-button-container">
             <div
               className="rectangle-button --decider"
-              onClick={() => this.showResults()}
+              onClick={() => this.showResults(this.state.averageType)}
             >
               <p>Show me</p>
             </div>
