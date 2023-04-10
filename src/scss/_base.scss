@@ -3,6 +3,7 @@ $primary-color: black;
 $alt-black: #050805;
 $deloitte-green : #cfed8f;
 $electric-green: #c1fb4d;
+$electric-green-alt : #b6e552;
 $white: #ffffff;
 $blue: #367aac;
 //FONTS
@@ -72,7 +73,7 @@ body {
 
 .--active {
   border: 3px solid $electric-green;
-  box-shadow: 0 0 7px #b6e552;
+  box-shadow: 0 0 7px $electric-green-alt;
   transition: 0.6s;
   transform: translateY(-8px);
 
@@ -84,7 +85,7 @@ body {
 
 .--decider:hover {
   border: 3px solid $deloitte-green;
-  box-shadow: 0 0 7px #b6e552;
+  box-shadow: 0 0 7px $electric-green-alt;
   transition: 0.6s;
 
   p {
